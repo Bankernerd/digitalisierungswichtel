@@ -14,13 +14,9 @@ function App() {
       <div className="app">
         <header className="p-4">
           <nav>
-            <Link to="/" className="mr-3">
-              Home
+            <Link to="/" className="brand-link mr-3">
+              Logo
             </Link>
-            <Link to="/fragen" className="mr-3">
-              Fragen
-            </Link>
-            <Link to="/kontakt">Kontakt</Link>
           </nav>
         </header>
         <div className="content">
@@ -40,9 +36,13 @@ function App() {
           </Switch>
         </div>
         <footer className="p-4">
-          <Link to="/impressum" className="mr-3">
+          <Link to="/impressum" className="mr-4">
             Impressum
           </Link>
+          <Link to="/fragen" className="mr-4">
+            Fragen
+          </Link>
+          <Link to="/kontakt">Kontakt</Link>
         </footer>
       </div>
     </Router>

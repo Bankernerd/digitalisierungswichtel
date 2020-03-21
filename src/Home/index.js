@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -6,14 +7,10 @@ function Home() {
       <div className="pane pane-1">
         <div className="pane-container">
           <h1>Digitalisierungswichtel</h1>
-          <p>Was machen wir?</p>
-        </div>
-      </div>
-      <div className="pane pane-2">
-        <div className="pane-container">
-          <h1 className="mt-3">Ich bin Händler, wie starte ich?</h1>
-          <p>Als Händler xy, tu ich das zuerst</p>
-          <button className="btn btn-home">Quiz starten</button>
+          <p>Wir helfen Dir Dein Geschäftsmodell zu digitalisieren?</p>
+          <Link to="/fragen" className="btn btn-home">
+            Los gehts!
+          </Link>
         </div>
       </div>
     </div>

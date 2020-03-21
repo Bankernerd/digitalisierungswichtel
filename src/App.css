@@ -1,13 +1,15 @@
 .app {
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .content {
-  margin-top: 5rem;
-  height: 100%;
+  padding-top: 5rem;
+  min-height: 100%;
+  background-image: linear-gradient(217deg, #e66465, #9198e5);
+  flex-grow: 1;
 }
 
 header {
@@ -15,16 +17,16 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #181818;
-  color: #fff;
+  background-color: transparent;
+  color: #181818;
   height: 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 1.5rem;
 }
 
 footer {
-  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
@@ -34,11 +36,22 @@ footer {
 
 a {
   text-decoration: none;
-  color: #fff;
 }
 
 a:hover {
-  color: #ddd;
+  text-decoration: none;
+}
+
+footer > a {
+  color: #fff;
+}
+
+.brand-link {
+  font-family: 'B612', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .home {
@@ -52,18 +65,24 @@ a:hover {
 }
 
 .pane-1 {
-  background-image: url('./assets/header-image.png');
-  background-position: center;
-  background-size: cover;
-  min-height: 27.842%;
-  color: #fff;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pane-container {
-  color: #181818;
-  background-color: rgba(255, 255, 255, 0.8);
   margin: 2rem 3rem;
-  padding: 1rem;
+  color: #fff;
+}
+
+.pane-container > h1 {
+  color: #fff;
+  font-size: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.pane-container > p {
+  margin-bottom: 3rem;
 }
 
 .btn {
@@ -75,8 +94,9 @@ a:hover {
 }
 
 .btn-home {
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: 1.4rem;
+  font-weight: bold;
   background-size: 200% auto;
   transition: 0.5s;
   color: #fff;
@@ -90,4 +110,5 @@ a:hover {
 
 .btn-home:hover {
   background-position: right center;
+  color: #fff;
 }
