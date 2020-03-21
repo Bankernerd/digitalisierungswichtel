@@ -5,6 +5,7 @@ import Home from './Home';
 import Contact from './Contact';
 import Questions from './Questions';
 import Impressum from './Impressum';
+import Frage from './Frage';
 
 import './App.css';
 
@@ -15,7 +16,7 @@ function App() {
         <header className="p-4">
           <nav>
             <Link to="/" className="brand-link mr-3">
-              Logo
+              #Corona
             </Link>
           </nav>
         </header>
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/fragen">
               <Questions />
+            </Route>
+            <Route path="/frage">
+              <Frage />
             </Route>
             <Route path="/impressum">
               <Impressum />

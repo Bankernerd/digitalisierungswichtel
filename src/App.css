@@ -56,10 +56,16 @@ footer > a {
 
 .home,
 .contact,
-.impressum {
+.impressum,
+.frage {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.frage {
+  margin-top: 5rem;
+  align-items: center;
 }
 
 .pane {
@@ -83,12 +89,16 @@ footer > a {
   margin-bottom: 3rem;
 }
 
+.question-pane {
+  width: 50%;
+}
+
 .btn {
   border: none;
   border-radius: 0.8rem;
   text-align: center;
   text-transform: uppercase;
-  cursor: pionter;
+  cursor: pointer;
 }
 
 .btn-home {
@@ -144,4 +154,31 @@ textarea {
   margin-top: 0.5rem;
   border-radius: 0;
   border: 1px solid #181818;
+}
+
+.question {
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-answer {
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border: 3px solid transparent;
+}
+
+.btn-answer:hover {
+  border: 3px solid #a9ddd6;
+}
+
+.btn-answer:active {
+  background-color: #a9ddd6;
 }

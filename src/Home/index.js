@@ -8,7 +8,7 @@ function Home() {
         <div className="pane-container">
           <h1>Digitalisierungswichtel</h1>
           <p>Wir helfen Dir Dein Geschäftsmodell zu digitalisieren?</p>
-          <Link to="/fragen" className="btn btn-home">
+          <Link to="/frage" className="btn btn-home">
             Los gehts!
           </Link>
         </div>
