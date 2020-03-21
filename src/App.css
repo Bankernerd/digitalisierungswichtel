@@ -7,6 +7,7 @@
 
 .content {
   margin-top: 5rem;
+  height: 100%;
 }
 
 header {
@@ -16,6 +17,10 @@ header {
   right: 0;
   background-color: #181818;
   color: #fff;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
 }
 
 footer {
@@ -34,4 +39,55 @@ a {
 
 a:hover {
   color: #ddd;
+}
+
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pane {
+  width: 100%;
+}
+
+.pane-1 {
+  background-image: url('./assets/header-image.png');
+  background-position: center;
+  background-size: cover;
+  min-height: 27.842%;
+  color: #fff;
+}
+
+.pane-container {
+  color: #181818;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 2rem 3rem;
+  padding: 1rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pionter;
+}
+
+.btn-home {
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  background-size: 200% auto;
+  transition: 0.5s;
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #7474bf 0%,
+    #348ac7 51%,
+    #7474bf 100%
+  );
+}
+
+.btn-home:hover {
+  background-position: right center;
 }
