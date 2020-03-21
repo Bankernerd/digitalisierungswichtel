@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Contact from './Contact';
 import Questions from './Questions';
+import Impressum from './Impressum';
 
 import './App.css';
 
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/fragen">
               <Questions />
+            </Route>
+            <Route path="/impressum">
+              <Impressum />
             </Route>
             <Route patch="/">
               <Home />
