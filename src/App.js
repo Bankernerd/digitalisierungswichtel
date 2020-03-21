@@ -5,6 +5,7 @@ import Home from './Home';
 import Contact from './Contact';
 import Questions from './Questions';
 import Impressum from './Impressum';
+import Frage from './Frage';
 
 import './App.css';
 
@@ -14,13 +15,9 @@ function App() {
       <div className="app">
         <header className="p-4">
           <nav>
-            <Link to="/" className="mr-3">
-              Home
+            <Link to="/" className="brand-link mr-3">
+              #Corona
             </Link>
-            <Link to="/fragen" className="mr-3">
-              Fragen
-            </Link>
-            <Link to="/kontakt">Kontakt</Link>
           </nav>
         </header>
         <div className="content">
@@ -31,6 +28,9 @@ function App() {
             <Route path="/fragen">
               <Questions />
             </Route>
+            <Route path="/frage">
+              <Frage />
+            </Route>
             <Route path="/impressum">
               <Impressum />
             </Route>
@@ -40,9 +40,13 @@ function App() {
           </Switch>
         </div>
         <footer className="p-4">
-          <Link to="/impressum" className="mr-3">
+          <Link to="/impressum" className="mr-4">
             Impressum
           </Link>
+          <Link to="/fragen" className="mr-4">
+            Fragen
+          </Link>
+          <Link to="/kontakt">Kontakt</Link>
         </footer>
       </div>
     </Router>
