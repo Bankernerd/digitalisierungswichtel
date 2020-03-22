@@ -8,7 +8,8 @@ function Frage() {
     {
       current: 0,
       files: [],
-      filesSubmitted: false
+      filesSubmitted: false,
+      toolsInUse: []
     });
 
   const fragen = [
@@ -30,6 +31,8 @@ function Frage() {
     }
   ];
 
+  const tools = ["Eigene Website", "Google Places", "Instagram", "Tripadvisor", "Lieferando"];
+
   function inc() {
     setState({...s, current: s.current + 1});
   }
@@ -46,6 +49,18 @@ function Frage() {
     setState({...s, filesSubmitted: true});
   };
 
+  function handleCheckBox(event)
+  {
+    const target = event.target;
+
+    const tiu = target.checked ?
+       s.toolsInUse.concat(target.name) :
+       s.toolsInUse.filter(t => t.localeCompare(target.name));
+
+    tiu.map(t => console.log(t));
+    setState({...s, toolsInUse: tiu});
+  };
+
   return (
     <div className="frage">
       <div className="question-pane">
@@ -59,11 +74,24 @@ function Frage() {
             <div>
               <input type="file" onChange={fileSelectHandler}/>
               <div>
+                {s.files.map(f => ( <div>{f.name}</div>))}
                 <button onClick={fileSubmitHandler}>Sumbit</button>
               </div>
             </div>
           ) : (
-            <div>Sumbitted</div>
+            <div>
+                {tools.map(t => (
+                  <label>
+                    {t}
+                    <input
+                      name={t}
+                      type="checkbox"
+                      onChange={handleCheckBox}
+                    />
+                  </label>
+                ))}
+                <button onClick={console.log("wat")}>Sumbit</button>
+            </div>
           ))}
       </div>
     </div>
