@@ -5,7 +5,7 @@ import { Card } from './Card';
 function Frage() {
   const [current, setCurrent] = React.useState(0);
 
-  const fragen = {};
+  const fragen = [];
 
   return (
     <div className="frage">
@@ -13,6 +13,7 @@ function Frage() {
         <Card
           frage={'Was verkaufst du so?'}
           answers={['Essen', 'Services', 'mich', 'Klopapier']}
+          setCurrent={setCurrent}
         />
       </div>
     </div>
