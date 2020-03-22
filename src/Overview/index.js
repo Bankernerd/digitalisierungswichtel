@@ -1,4 +1,5 @@
 import React from 'react';
+import { Infos } from '../Info/Infos';
 
 import Info from './Info';
 import Tools from './Tools';
