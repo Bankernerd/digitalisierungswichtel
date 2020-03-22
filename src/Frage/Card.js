@@ -7,10 +7,12 @@ export function Card(props) {
     <div className="card">
       <h2 className="question">{props.frage}</h2>
       <div className="answers">
-        {props.answers.map(answer => (
+        {props.answers.map((answer, i) => (
           <Answer
             answer={answer}
+            key={i}
             onClicked={props.onAnswerSelected}
+            index={i}
           />
         ))}
       </div>

@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  color: #fff;
 }
 
 .content {
@@ -123,6 +124,7 @@ footer > a {
 .question-pane {
   margin-top: 2rem;
   width: 50%;
+  padding-bottom: 2rem;
 }
 
 @media screen and (max-width: 420px) {
@@ -250,4 +252,8 @@ textarea {
   color: #fff;
   bottom: 8px;
   right: 5px;
+}
+
+.w-100 {
+  width: 100%;
 }

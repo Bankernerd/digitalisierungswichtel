@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 import Gallery from 'react-photo-gallery';
 
 import { Card } from './Card';
+import Overview from '../Overview';
 import { Infos } from '../Info/Infos';
 
 function Frage() {
   const [s, setState] = React.useState({
     current: 0,
+    answered: [],
     files: [],
     toolsInUse: [],
     step: 'questions'
   });
 
   const fragen = [
+    {
+      frage: 'Was bist du?',
+      answers: ['Gastronom', 'Produkt', 'Service']
+    },
     {
       frage: 'Welche Art von Ware bietst du an',
       answers: ['Lebensmittel', 'Produkte', 'Dienstleistung']
@@ -40,10 +46,12 @@ function Frage() {
     'Lieferando'
   ];
 
-  function inc() {
+  function inc(index) {
     let c = s.current + 1;
-    let step = c >= fragen.length ? 'upload' : s.step;
+    setState({ ...s, answered: s.answered.push(index) });
+    let step = c >= fragen.length ? 'overview' : s.step;
     setState({ ...s, current: c, step: step });
+    console.log(s.answered);
   }
 
   const progress = ((s.current + 1) / fragen.length) * 100;
@@ -52,7 +60,9 @@ function Frage() {
     console.log(event.target.files[0]);
     if (checkMimeType(event)) {
       const reader = new FileReader();
-      reader.addEventListener("load", function () {
+      reader.addEventListener(
+        'load',
+        function() {
           let image = new Image();
           image.src = reader.result;
           let a = image.height / image.width;
@@ -61,8 +71,10 @@ function Frage() {
             width: 1,
             height: a
           });
-          setState({...s, files: f});
-        }, false);
+          setState({ ...s, files: f });
+        },
+        false
+      );
       reader.readAsDataURL(event.target.files[0]);
     }
   }
@@ -118,9 +130,11 @@ function Frage() {
             onAnswerSelected={inc}
           />
         );
+      case 'overview':
+        return <Overview />;
       case 'upload':
         return (
-          <div>
+          <form>
             <input
               type="file"
               onChange={fileSelectHandler}
@@ -130,45 +144,67 @@ function Frage() {
               {s.files.map(f => (
                 <div>{f.name}</div>
               ))}
-              <button onClick={fileSubmitHandler}>Sumbit</button>
+              <button className="btn btn-home" onClick={fileSubmitHandler}>
+                Sumbit
+              </button>
             </div>
-          </div>
+          </form>
         );
       case 'toolsInUse':
-            return <div>
-                      {tools.map(t => (
-                        <label>
-                          {t}
-                          <input
-                            name={t}
-                            type="checkbox"
-                            onChange={handleCheckBox}
-                          />
-                        </label>
-                      ))}
-                      <button onClick={() => {setState({...s, step:"suggestions"})}}>Sumbit</button>
-                  </div>;
-        case 'suggestions':
-          return <div>
-                  <Gallery photos={s.files}/>
-                  <button onClick={() => {setState({...s, step:"info"})}}>Sumbit</button>
-              </div>;
-        case 'info':
-          return <div><Infos/></div>
-        default:
-          return <div>You should never see this</div>
+        return (
+          <div>
+            {tools.map(t => (
+              <label>
+                {t}
+                <input name={t} type="checkbox" onChange={handleCheckBox} />
+              </label>
+            ))}
+            <button
+              onClick={() => {
+                setState({ ...s, step: 'suggestions' });
+              }}
+            >
+              Sumbit
+            </button>
+          </div>
+        );
+      case 'suggestions':
+        return (
+          <div>
+            <Gallery photos={s.files} />
+            <button
+              onClick={() => {
+                setState({ ...s, step: 'info' });
+              }}
+            >
+              Sumbit
+            </button>
+          </div>
+        );
+      case 'info':
+        return (
+          <div>
+            <Infos />
+          </div>
+        );
+      default:
+        return <div>You should never see this</div>;
     }
   }
 
   return (
     <div className="frage">
-      <div className="progress-bar">
-        <div className="progress" style={{ width: progress + '%' }}>
-          <small className="progress-number">
-            {s.current + 1 + '/' + fragen.length}
-          </small>
+      {s.step === 'questions' ? (
+        <div className="progress-bar">
+          <div className="progress" style={{ width: progress + '%' }}>
+            <small className="progress-number">
+              {s.current + 1 + '/' + fragen.length}
+            </small>
+          </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
       <div className="question-pane">
         {conditionalRender(s.step, fragen, s)}
       </div>
