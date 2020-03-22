@@ -18,7 +18,7 @@ function Frage() {
   const fragen = [
     {
       frage: 'Was bist du?',
-      answers: ['Gastronom', 'Händler', 'Service']
+      answers: ['Gastronom', 'Händler', 'Dienstleister']
     },
     {
       frage: 'Welche Art von Ware bietst du an?',
