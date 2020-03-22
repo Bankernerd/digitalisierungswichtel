@@ -4,8 +4,12 @@ import PropTypes from 'prop-types';
 import { Card } from './Card';
 
 function Frage() {
-  const [current, setCurrent] = React.useState(0);
-  const [files, setFiles] = React.useState([]);
+  const [state, setState] = React.useState(
+    {
+      current: 0,
+      files: [],
+      filesSubmitted: false
+    });
 
   const fragen = [
     {
@@ -27,17 +31,19 @@ function Frage() {
   ];
 
   function inc() {
-    setCurrent(current + 1);
+    setState({...state, current: current + 1});
   }
 
-  function fileSelectHandler(event){
+  function fileSelectHandler(event) {
     console.log(event.target.files[0]);
     const f = files.concat(event.target.files[0]);
-    setFiles(f);
+
+    setState({...state, files: files});
   };
 
-  function fileSubmitHandler(){
+  function fileSubmitHandler() {
     files.map(f => console.log(f));
+    setState({...state, filesSubmitted: true});
   };
 
   return (
@@ -52,7 +58,9 @@ function Frage() {
         ):(
           <div>
             <input type="file" onChange={fileSelectHandler}/>
-            <button onClick={fileSubmitHandler}>"Sumbit"</button>
+            <div>
+              <button onClick={fileSubmitHandler}>Sumbit</button>
+            </div>
           </div>
         )}
       </div>
