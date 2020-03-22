@@ -6,7 +6,8 @@ function Home() {
     <div className="home">
       <div className="pane">
         <div className="pane-container">
-          <h1>Digitalisierungswichtel</h1>
+          <h1 className="large-screen">Digitalisierungswichtel</h1>
+          <h1 className="small-screen">Digitali-sierungs-Wichtel</h1>
           <p>Wir helfen Dir Dein Geschäftsmodell zu digitalisieren?</p>
           <Link to="/frage" className="btn btn-home">
             Los gehts!

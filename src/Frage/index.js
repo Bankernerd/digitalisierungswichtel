@@ -29,8 +29,17 @@ function Frage() {
     setCurrent(current + 1);
   }
 
+  const progress = ((current + 1) / fragen.length) * 100;
+
   return (
     <div className="frage">
+      <div className="progress-bar">
+        <div className="progress" style={{ width: progress + '%' }}>
+          <small className="progress-number">
+            {current + 1 + '/' + fragen.length}
+          </small>
+        </div>
+      </div>
       <div className="question-pane">
         {current < fragen.length ? (
           <Card
