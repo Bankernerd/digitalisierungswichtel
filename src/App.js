@@ -16,7 +16,7 @@ function App() {
         <header className="p-4">
           <nav>
             <Link to="/" className="brand-link mr-3">
-              #Corona
+              #wirvsvirus
             </Link>
           </nav>
         </header>

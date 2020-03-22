@@ -261,3 +261,15 @@ textarea {
 .btn-back {
   padding: 0.5rem;
 }
+
+.show-body {
+  display: block;
+}
+
+.hide-body {
+  display: none;
+}
+
+.collapse > h2 {
+  margin-top: 0;
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Infos } from '../Info/Infos';
 
 import Info from './Info';
 import Tools from './Tools';
@@ -11,11 +10,9 @@ function Overview() {
 
   const BackBtn = () => {
     return (
-      <div className="tools">
-        <button className="btn btn-back" onClick={() => setRoute('overview')}>
-          zurück
-        </button>
-      </div>
+      <button className="btn btn-back" onClick={() => setRoute('overview')}>
+        zurück
+      </button>
     );
   };
 

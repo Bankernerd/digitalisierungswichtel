@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Collapsible from 'react-collapsible';
 
+import { Collapse } from './Collapse';
+
 export function Information(props) {
-  return (
-    <Collapsible trigger={props.title} className="btn btn-answer">
-      <div>{props.body()}</div>
-    </Collapsible>
-  );
+  return <Collapse title={props.title} body={props.body()} />;
 }
 
 Information.propTypes = {
