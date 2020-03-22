@@ -1,12 +1,17 @@
 import React from 'react';
 
+import Info from './Info';
+import Tools from './Tools';
+import Website from './Website';
+import Local from './Local';
+
 function Overview() {
   const [route, setRoute] = React.useState('overview');
 
   const BackBtn = () => {
     return (
       <div className="tools">
-        <button className="btn" onClick={() => setRoute('overview')}>
+        <button className="btn btn-back" onClick={() => setRoute('overview')}>
           zurück
         </button>
       </div>
@@ -46,13 +51,13 @@ function Overview() {
           </div>
         );
       case 'info':
-        return <div className="info"></div>;
+        return <Info />;
       case 'tools':
-        return <div className="tools"></div>;
+        return <Tools />;
       case 'website':
-        return <div className="website"></div>;
+        return <Website />;
       case 'local':
-        return <div className="local"></div>;
+        return <Local />;
       default:
         return <></>;
     }

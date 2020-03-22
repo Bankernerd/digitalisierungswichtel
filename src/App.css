@@ -257,3 +257,7 @@ textarea {
 .w-100 {
   width: 100%;
 }
+
+.btn-back {
+  padding: 0.5rem;
+}

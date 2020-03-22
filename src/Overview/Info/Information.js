@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function Info(props) {
+export function Information(props) {
   return (
     <div className="info">
       <span>{props.title}</span>
@@ -10,7 +10,7 @@ export function Info(props) {
   );
 }
 
-Info.propTypes = {
+Information.propTypes = {
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired
 };

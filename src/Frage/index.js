@@ -4,7 +4,7 @@ import Gallery from 'react-photo-gallery';
 
 import { Card } from './Card';
 import Overview from '../Overview';
-import { Infos } from '../Info/Infos';
+import Info from '../Overview/Info';
 
 function Frage() {
   const [s, setState] = React.useState({
@@ -34,7 +34,7 @@ function Frage() {
     },
     {
       frage: 'Wie erreichst du deinen Kunden?',
-      answers: ['Persönlicher Kontak', 'Social Media', 'Print Werbung']
+      answers: ['Persönlicher Kontakt', 'Social Media', 'Print Werbung']
     }
   ];
 
@@ -184,7 +184,7 @@ function Frage() {
       case 'info':
         return (
           <div>
-            <Infos />
+            <Info />
           </div>
         );
       default:
