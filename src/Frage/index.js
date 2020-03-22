@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Gallery from 'react-photo-gallery';
 
 import { Card } from './Card';
 
@@ -45,7 +46,14 @@ function Frage() {
     {
       const reader = new FileReader();
       reader.addEventListener("load", function () {
-          const f = s.files.concat(reader.result);
+          let image = new Image();
+          image.src = reader.result;
+          let a = image.height / image.width;
+          const f = s.files.concat({
+            src: reader.result,
+            width: a,
+            height: 1
+          });
           setState({...s, files: f});
         }, false);
       reader.readAsDataURL(event.target.files[0]);
@@ -130,7 +138,8 @@ function Frage() {
                       <button onClick={() => {setState({...s, step:"suggestions"})}}>Sumbit</button>
                   </div>;
         case 'suggestions':
-          return <div> {s.files.map(i => (<img src={i}/>))} </div>
+          return <Gallery photos={s.files}/>
+          //return <div> {s.files.map(i => (<img src={i}/>))} </div>
         default:
           return <div>You should never see this</div>
     }
