@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import YouTube from 'react-youtube-embed';
+
 import { Information } from './Information';
 
 function Info(props) {
@@ -153,6 +155,10 @@ function Info(props) {
         {infos.map((info, i) => (
           <Information key={i} title={info.title} body={info.body} />
         ))}
+        <Information
+          title={'Hygiene'}
+          body={() => <YouTube id="Lz-wf_Daxnw" />}
+        />
         <Information
           title={'Lieferung'}
           body={lieferungBody(props.answered[3] === 0)}

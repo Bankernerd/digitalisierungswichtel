@@ -297,6 +297,8 @@ textarea {
 
 .show-body {
   display: block;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 .hide-body {
