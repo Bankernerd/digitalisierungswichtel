@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Information } from './Information';
 
-function Info() {
+function Info(props) {
   const infos = [
     {
       title: 'Kundenkontakt fördern',
@@ -75,7 +75,7 @@ function Info() {
       }
     },
     {
-      title: 'Fördermitell',
+      title: 'Fördermittel',
       body: () => {
         return (
           <div>
@@ -118,8 +118,8 @@ function Info() {
     <div className="info">
       <h2 className="question">Infos</h2>
       <div>
-        {infos.map(info => (
-          <Information title={info.title} body={info.body} />
+        {infos.map((info, i) => (
+          <Information key={i} title={info.title} body={info.body} />
         ))}
       </div>
     </div>

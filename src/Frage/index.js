@@ -26,7 +26,7 @@ function Frage() {
     },
     {
       frage: 'Arbeitest du mit Terminen?',
-      answers: ['Ja, Telefonisch', 'Ja per Webportal', 'Nein']
+      answers: ['Ja, Telefonisch', 'Ja, per Webportal', 'Nein']
     },
     {
       frage: 'Hast du einen Lieferservice?',
@@ -34,7 +34,12 @@ function Frage() {
     },
     {
       frage: 'Wie erreichst du deinen Kunden?',
-      answers: ['Persönlicher Kontakt', 'Social Media', 'Print Werbung']
+      answers: [
+        'Persönlicher Kontakt',
+        'Social Media',
+        'Print Werbung',
+        'gar nicht bisher'
+      ]
     }
   ];
 
@@ -131,7 +136,7 @@ function Frage() {
           />
         );
       case 'overview':
-        return <Overview />;
+        return <Overview answered={s.answered} />;
       case 'upload':
         return (
           <form>

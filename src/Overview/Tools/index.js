@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Tools() {
+function Tools(props) {
   return <div className="tools"></div>;
 }
 

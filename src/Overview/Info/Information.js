@@ -10,6 +10,5 @@ export function Information(props) {
 
 Information.propTypes = {
   title: PropTypes.string.isRequired,
-  body: PropTypes.func.isRequired,
-  bodyVisible: false
+  body: PropTypes.func.isRequired
 };

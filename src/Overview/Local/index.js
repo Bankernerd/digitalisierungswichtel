@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Local() {
+function Local(props) {
   return <div className="local"></div>;
 }
 

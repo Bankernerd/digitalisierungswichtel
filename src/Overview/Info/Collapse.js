@@ -13,7 +13,7 @@ export function Collapse(props) {
         {collapsed ? 'Anzeigen' : 'Verbergen'}
       </button>
       <div className={collapsed ? 'hide-body' : 'show-body'}>
-        <p>{props.body}</p>
+        <div>{props.body}</div>
       </div>
     </div>
   );

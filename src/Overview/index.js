@@ -5,7 +5,7 @@ import Tools from './Tools';
 import Website from './Website';
 import Local from './Local';
 
-function Overview() {
+function Overview(props) {
   const [route, setRoute] = React.useState('overview');
 
   const BackBtn = () => {
@@ -49,13 +49,13 @@ function Overview() {
           </div>
         );
       case 'info':
-        return <Info />;
+        return <Info answered={props.answered} />;
       case 'tools':
-        return <Tools />;
+        return <Tools answered={props.answered} />;
       case 'website':
-        return <Website />;
+        return <Website answered={props.answered} />;
       case 'local':
-        return <Local />;
+        return <Local answered={props.answered} />;
       default:
         return <></>;
     }
