@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Gallery from 'react-photo-gallery';
 
 import { Card } from './Card';
+import { Infos } from '../Info/Infos';
 
 function Frage() {
   const [s, setState] = React.useState({
@@ -57,8 +58,8 @@ function Frage() {
           let a = image.height / image.width;
           const f = s.files.concat({
             src: reader.result,
-            width: a,
-            height: 1
+            width: 1,
+            height: a
           });
           setState({...s, files: f});
         }, false);
@@ -148,8 +149,12 @@ function Frage() {
                       <button onClick={() => {setState({...s, step:"suggestions"})}}>Sumbit</button>
                   </div>;
         case 'suggestions':
-          return <Gallery photos={s.files}/>
-          //return <div> {s.files.map(i => (<img src={i}/>))} </div>
+          return <div>
+                  <Gallery photos={s.files}/>
+                  <button onClick={() => {setState({...s, step:"info"})}}>Sumbit</button>
+              </div>;
+        case 'info':
+          return <div><Infos/></div>
         default:
           return <div>You should never see this</div>
     }
