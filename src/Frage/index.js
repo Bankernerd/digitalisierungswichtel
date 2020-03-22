@@ -8,8 +8,8 @@ function Frage() {
     {
       current: 0,
       files: [],
-      filesSubmitted: false,
-      toolsInUse: []
+      toolsInUse: [],
+      step: "questions"
     });
 
   const fragen = [
@@ -34,7 +34,9 @@ function Frage() {
   const tools = ["Eigene Website", "Google Places", "Instagram", "Tripadvisor", "Lieferando"];
 
   function inc() {
-    setState({...s, current: s.current + 1});
+    let c = s.current + 1;
+    let step = c >= fragen.length ? "upload" : s.step;
+    setState({...s, current: c, step: step});
   }
 
   function fileSelectHandler(event) {
@@ -52,7 +54,7 @@ function Frage() {
 
   function fileSubmitHandler() {
     s.files.map(f => console.log(f));
-    setState({...s, filesSubmitted: true});
+    setState({...s, step: "toolsInUse"});
   };
 
   function checkMimeType(event){
@@ -91,17 +93,18 @@ function Frage() {
     setState({...s, toolsInUse: tiu});
   };
 
-  return (
-    <div className="frage">
-      <div className="question-pane">
-        {s.current < fragen.length ? (
-          <Card
-            frage={fragen[s.current].frage}
-            answers={fragen[s.current].answers}
-            onAnswerSelected={inc}
-          />
-        ):(!s.filesSubmitted ? (
-            <div>
+  function conditionalRender(step, fragen, s)
+  {
+    switch(step)
+    {
+      case 'questions':
+          return <Card
+                  frage={fragen[s.current].frage}
+                  answers={fragen[s.current].answers}
+                  onAnswerSelected={inc}
+                />;
+      case 'upload':
+        return <div>
               <input
                 type="file"
                 onChange={fileSelectHandler}
@@ -111,23 +114,32 @@ function Frage() {
                 {s.files.map(f => ( <div>{f.name}</div>))}
                 <button onClick={fileSubmitHandler}>Sumbit</button>
               </div>
-            </div>
-          ) : (
-            <div>
-                {tools.map(t => (
-                  <label>
-                    {t}
-                    <input
-                      name={t}
-                      type="checkbox"
-                      onChange={handleCheckBox}
-                    />
-                  </label>
-                ))}
-                {s.files.map(i => (<img src={i}/>))}
-                <button onClick={console.log("wat")}>Sumbit</button>
-            </div>
-          ))}
+            </div>;
+      case 'toolsInUse':
+            return <div>
+                      {tools.map(t => (
+                        <label>
+                          {t}
+                          <input
+                            name={t}
+                            type="checkbox"
+                            onChange={handleCheckBox}
+                          />
+                        </label>
+                      ))}
+                      <button onClick={() => {setState({...s, step:"suggestions"})}}>Sumbit</button>
+                  </div>;
+        case 'suggestions':
+          return <div> {s.files.map(i => (<img src={i}/>))} </div>
+        default:
+          return <div>You should never see this</div>
+    }
+  };
+
+  return (
+    <div className="frage">
+      <div className="question-pane">
+        {conditionalRender(s.step, fragen, s)}
       </div>
     </div>
   );
