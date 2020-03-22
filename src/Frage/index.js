@@ -39,15 +39,45 @@ function Frage() {
 
   function fileSelectHandler(event) {
     console.log(event.target.files[0]);
-    const f = s.files.concat(event.target.files[0]);
-
-    setState({...s, files: f});
+    if(checkMimeType(event))
+    {
+      const reader = new FileReader();
+      reader.addEventListener("load", function () {
+          const f = s.files.concat(reader.result);
+          setState({...s, files: f});
+        }, false);
+      reader.readAsDataURL(event.target.files[0]);
+    }
   };
 
   function fileSubmitHandler() {
     s.files.map(f => console.log(f));
     setState({...s, filesSubmitted: true});
   };
+
+  function checkMimeType(event){
+    //getting file object
+    let files = event.target.files 
+    //define message container
+    let err = ''
+    // list allow mime type
+    const types = ['image/png', 'image/jpeg', 'image/gif']
+      // loop access array
+      for(var x = 0; x<files.length; x++) {
+      // compare file type find doesn't matach
+          if (types.every(type => files[x].type !== type)) {
+          // create error message and assign to container   
+          err += files[x].type+' is not a supported format\n';
+        }
+      };
+
+    if (err !== '') { // if message not same old that mean has error 
+          event.target.value = null // discard selected file
+          console.log(err)
+          return false; 
+      }
+    return true;
+  }
 
   function handleCheckBox(event)
   {
@@ -72,7 +102,11 @@ function Frage() {
           />
         ):(!s.filesSubmitted ? (
             <div>
-              <input type="file" onChange={fileSelectHandler}/>
+              <input
+                type="file"
+                onChange={fileSelectHandler}
+                accept=".jpeg,.jpg,.png"
+              />
               <div>
                 {s.files.map(f => ( <div>{f.name}</div>))}
                 <button onClick={fileSubmitHandler}>Sumbit</button>
@@ -90,6 +124,7 @@ function Frage() {
                     />
                   </label>
                 ))}
+                {s.files.map(i => (<img src={i}/>))}
                 <button onClick={console.log("wat")}>Sumbit</button>
             </div>
           ))}
