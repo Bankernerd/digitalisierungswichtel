@@ -5,6 +5,7 @@ import { Card } from './Card';
 
 function Frage() {
   const [current, setCurrent] = React.useState(0);
+  const [files, setFiles] = React.useState([]);
 
   const fragen = [{
           frage: 'Welche Art von Ware bietst du an',
@@ -28,6 +29,16 @@ function Frage() {
     setCurrent(current + 1);
   };
 
+  function fileSelectHandler(event){
+    console.log(event.target.files[0]);
+    const f = files.concat(event.target.files[0]);
+    setFiles(f);
+  };
+
+  function fileSubmitHandler(){
+    files.map(f => console.log(f));
+  };
+
   return (
     <div className="frage">
       <div className="question-pane">
@@ -38,7 +49,10 @@ function Frage() {
             onAnswerSelected={inc}
           />
         ):(
-          <div>"You did it"</div>
+          <div>
+            <input type="file" onChange={fileSelectHandler}/>
+            <button onClick={fileSubmitHandler}>"Sumbit"</button>
+          </div>
         )}
       </div>
     </div>
