@@ -140,15 +140,29 @@ footer > a {
   padding-bottom: 2rem;
 }
 
+.info-pane {
+  margin-top: 2rem;
+  width: 70%;
+  padding-bottom: 2rem;
+}
+
 @media screen and (max-width: 1100px) {
   .question-pane {
     width: 70%;
+  }
+
+  .info-pane {
+    width: 80%;
   }
 }
 
 @media screen and (max-width: 420px) {
   .question-pane {
     width: 80%;
+  }
+
+  .info-pane {
+    width: 90%;
   }
 }
 
@@ -291,4 +305,8 @@ textarea {
 
 .collapse > h2 {
   margin-top: 0;
+}
+
+.webshop-example {
+  width: 100%;
 }

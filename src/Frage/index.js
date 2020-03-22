@@ -21,7 +21,7 @@ function Frage() {
       answers: ['Gastronom', 'Händler', 'Service']
     },
     {
-      frage: 'Welche Art von Ware bietst du an',
+      frage: 'Welche Art von Ware bietst du an?',
       answers: ['Lebensmittel', 'Non-Food Produkte']
     },
     {
@@ -210,7 +210,7 @@ function Frage() {
       ) : (
         <></>
       )}
-      <div className="question-pane">
+      <div className={s.step === 'questions' ? 'question-pane' : 'info-pane'}>
         {conditionalRender(s.step, fragen, s)}
       </div>
     </div>
