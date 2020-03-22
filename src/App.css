@@ -10,6 +10,7 @@
   min-height: 100%;
   background-image: linear-gradient(217deg, #e66465, #9198e5);
   flex-grow: 1;
+  display: flex;
 }
 
 header {
@@ -58,14 +59,18 @@ footer > a {
 .contact,
 .impressum,
 .frage {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .frage {
   margin-top: 5rem;
   align-items: center;
+}
+
+.impressum {
+  justify-content: space-between;
 }
 
 .pane {
@@ -181,4 +186,14 @@ textarea {
 
 .btn-answer:active {
   background-color: #a9ddd6;
+}
+
+.hackathon-img {
+  max-width: 100%;
+}
+
+.impressum-pane {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

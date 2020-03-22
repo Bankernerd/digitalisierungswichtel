@@ -7,27 +7,28 @@ function Frage() {
   const [current, setCurrent] = React.useState(0);
   const [files, setFiles] = React.useState([]);
 
-  const fragen = [{
-          frage: 'Welche Art von Ware bietst du an',
-          answers: ['Lebensmittel', 'Produkte', 'Dienstleistung'],
-        },
-        {
-          frage: 'Arbeitest du mit Terminen?',
-          answers: ['Ja, Telefonisch', 'Ja per Webportal', 'Nein'],
-        },
-        {
-          frage: 'Hast du einen Lieferservice?',
-          answers: ['Ja', 'Nein'],
-        },
-        {
-          frage: 'Wie erreichst du deinen Kunden?',
-          answers: ['Persönlicher Kontak', 'Social Media', 'Print Werbung'],
-        }];
+  const fragen = [
+    {
+      frage: 'Welche Art von Ware bietst du an',
+      answers: ['Lebensmittel', 'Produkte', 'Dienstleistung']
+    },
+    {
+      frage: 'Arbeitest du mit Terminen?',
+      answers: ['Ja, Telefonisch', 'Ja per Webportal', 'Nein']
+    },
+    {
+      frage: 'Hast du einen Lieferservice?',
+      answers: ['Ja', 'Nein']
+    },
+    {
+      frage: 'Wie erreichst du deinen Kunden?',
+      answers: ['Persönlicher Kontak', 'Social Media', 'Print Werbung']
+    }
+  ];
 
-  function inc()
-  {
+  function inc() {
     setCurrent(current + 1);
-  };
+  }
 
   function fileSelectHandler(event){
     console.log(event.target.files[0]);
