@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
 import Contact from './Contact';
-import Questions from './Questions';
 import Impressum from './Impressum';
 import Frage from './Frage';
 
@@ -25,9 +24,6 @@ function App() {
             <Route path="/kontakt">
               <Contact />
             </Route>
-            <Route path="/fragen">
-              <Questions />
-            </Route>
             <Route path="/frage">
               <Frage />
             </Route>
@@ -42,9 +38,6 @@ function App() {
         <footer className="p-4">
           <Link to="/impressum" className="mr-4">
             Impressum
-          </Link>
-          <Link to="/fragen" className="mr-4">
-            Fragen
           </Link>
           <Link to="/kontakt">Kontakt</Link>
         </footer>

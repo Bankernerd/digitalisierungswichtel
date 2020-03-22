@@ -65,6 +65,17 @@ function Overview(props) {
     <div className="post-frage">
       {route !== 'overview' ? <BackBtn /> : <></>}
       {render()}
+      {route === 'overview' ? (
+        <div>
+          <p>
+            Wir haben noch viel mehr, Du findest hier Informationen zu
+            Bezahlsystemen, nützlichen Tools, deinem ersten eigenen Webshop und
+            wir geben Dir gerne auch persönlich Unterstützung! #youarenotalone
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

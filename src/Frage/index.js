@@ -18,11 +18,11 @@ function Frage() {
   const fragen = [
     {
       frage: 'Was bist du?',
-      answers: ['Gastronom', 'Produkt', 'Service']
+      answers: ['Gastronom', 'Händler', 'Service']
     },
     {
       frage: 'Welche Art von Ware bietst du an',
-      answers: ['Lebensmittel', 'Produkte', 'Dienstleistung']
+      answers: ['Lebensmittel', 'Non-Food Produkte']
     },
     {
       frage: 'Arbeitest du mit Terminen?',

@@ -79,40 +79,72 @@ function Info(props) {
       body: () => {
         return (
           <div>
-            <ul>
-              <li>
-                Zehn-Punkte-Programm ist ein wichtiger Baustein der
-                Hightech-Strategie der Bundesregierung. Es zielt darauf, die KMU
-                mit den anderen Akteuren zu vernetzen sowie Wissen und
-                Forschungsergebnisse besser für KMU nutzbar zu machen: Die
-                Förderinitiative „Innovationsforen Mittelstand“ bietet die
-                Möglichkeit, gemeinsam die Grenzen von Institutionen und
-                Branchen zu durchbrechen und neue Bündnisse zu initiieren.
-                Netzwerke und Cluster sprechen wir mit „KMU-NetC“ als
-                Impulsgeber für KMU-orientierte FuE-Verbundprojekte an.
-              </li>
-              <li>
-                Mikrofinanzierung der EU - Die entsprechenden Förderprogramme
-                der EU werden im Rahmen von zwei Programmen gewährt. Das ist zum
-                einen das Progress-Mikrofinanzierungsinstrument für
-                Beschäftigung und soziale Eingliederung. Zum anderen gewährt
-                auch das Rahmenprogramm für Wettbewerbsfähigkeit und Innovation
-                der EU Gelder. Für letzteres ist der Ansprechpartner der
-                Europäische Investitionsfonds (EIF) in Luxemburg. Für Gelder aus
-                dem Instrument für Mikrokredite wendet man sich an die
-                Europäische Investitionsbank (EIB), die ihren Sitz ebenfalls in
-                Luxemburg hat, oder direkt an die Europäische Kommission in
-                Brüssel.{' '}
-                <a href="http://ec.europa.eu/social/main.jsp?catId=836&langId=de">
-                  Link
-                </a>
-              </li>
-            </ul>
+            <p>
+              Zehn-Punkte-Programm ist ein wichtiger Baustein der
+              Hightech-Strategie der Bundesregierung. Es zielt darauf, die KMU
+              mit den anderen Akteuren zu vernetzen sowie Wissen und
+              Forschungsergebnisse besser für KMU nutzbar zu machen: Die
+              Förderinitiative „Innovationsforen Mittelstand“ bietet die
+              Möglichkeit, gemeinsam die Grenzen von Institutionen und Branchen
+              zu durchbrechen und neue Bündnisse zu initiieren. Netzwerke und
+              Cluster sprechen wir mit „KMU-NetC“ als Impulsgeber für
+              KMU-orientierte FuE-Verbundprojekte an.
+            </p>
+            <p>
+              Mikrofinanzierung der EU - Die entsprechenden Förderprogramme der
+              EU werden im Rahmen von zwei Programmen gewährt. Das ist zum einen
+              das Progress-Mikrofinanzierungsinstrument für Beschäftigung und
+              soziale Eingliederung. Zum anderen gewährt auch das Rahmenprogramm
+              für Wettbewerbsfähigkeit und Innovation der EU Gelder. Für
+              letzteres ist der Ansprechpartner der Europäische
+              Investitionsfonds (EIF) in Luxemburg. Für Gelder aus dem
+              Instrument für Mikrokredite wendet man sich an die Europäische
+              Investitionsbank (EIB), die ihren Sitz ebenfalls in Luxemburg hat,
+              oder direkt an die Europäische Kommission in Brüssel.{' '}
+              <a href="http://ec.europa.eu/social/main.jsp?catId=836&langId=de">
+                Link
+              </a>
+            </p>
           </div>
         );
       }
     }
   ];
+
+  const lieferungBody = answer => {
+    if (answer) {
+      return () => (
+        <div>
+          <p>
+            Erweitere Deinen Lieferdienst um kontaktloses Bezahlen und
+            informiere Deine Kunden aktiv über Deine Hygienemaßnahmen. Erweitere
+            ausserdem Dein Produktangebot gemäß der aktuellen Situation, stelle
+            Pakete zusammen. Fokussiere Dich auf deine besten 5-10 Topseller
+            plus z.B. ein Rolle Gratis Toilettenpapier und einen Beutel Nudeln.
+            Sei kreativ und witzig und biete z.B. ein Überlebenspaket &
+            Unterhaltungspaket an.
+          </p>
+        </div>
+      );
+    } else {
+      return () => (
+        <div>
+          <p>
+            Biete in Zukunft einen kontaktlosen Lieferdienst an und promote
+            Deine 5-10 Topseller, Du kannst auch Pakete zusammenstellen, die zu
+            den Kunden in der Situation passen wie z.B. ein
+            Geburtstagsset/Unterhaltungsset, sei kreativ und gerne auch witzig,
+            Deine Kunden brauchen jetzt positive Energie. Wir empfehlen wir
+            dafür das kostengünstige Zahlungssystem Sumup. Mehr Information
+            bekommst du hier:
+            <a href="" alt="leerer Link">
+              click!
+            </a>
+          </p>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="info">
@@ -121,6 +153,10 @@ function Info(props) {
         {infos.map((info, i) => (
           <Information key={i} title={info.title} body={info.body} />
         ))}
+        <Information
+          title={'Lieferung'}
+          body={lieferungBody(props.answered[3] === 0)}
+        />
       </div>
     </div>
   );

@@ -85,15 +85,15 @@ footer > a {
   color: #fff;
 }
 
-@media screen and (max-width: 420px) {
-  .pane-container {
-    margin: 2rem 0;
-  }
-}
-
 @media screen and (max-width: 1100px) {
   .pane-container {
     margin: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .pane-container {
+    margin: 2rem 0;
   }
 }
 
@@ -106,13 +106,6 @@ footer > a {
 
 .pane-container > .small-screen {
   display: none;
-}
-
-@media screen and (max-width: 420px) {
-  .pane-container > h1 {
-    font-size: 4rem;
-    word-break: normal;
-  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -130,6 +123,13 @@ footer > a {
   }
 }
 
+@media screen and (max-width: 420px) {
+  .pane-container > h1 {
+    font-size: 4rem;
+    word-break: normal;
+  }
+}
+
 .pane-container > p {
   margin-bottom: 3rem;
 }
@@ -140,15 +140,15 @@ footer > a {
   padding-bottom: 2rem;
 }
 
-@media screen and (max-width: 420px) {
-  .question-pane {
-    width: 80%;
-  }
-}
-
 @media screen and (max-width: 1100px) {
   .question-pane {
     width: 70%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .question-pane {
+    width: 80%;
   }
 }
 
