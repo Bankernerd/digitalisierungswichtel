@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Card } from './Card';
 
 function Frage() {
-  const [state, setState] = React.useState(
+  const [s, setState] = React.useState(
     {
       current: 0,
       files: [],
@@ -31,38 +31,40 @@ function Frage() {
   ];
 
   function inc() {
-    setState({...state, current: current + 1});
+    setState({...s, current: s.current + 1});
   }
 
   function fileSelectHandler(event) {
     console.log(event.target.files[0]);
-    const f = files.concat(event.target.files[0]);
+    const f = s.files.concat(event.target.files[0]);
 
-    setState({...state, files: files});
+    setState({...s, files: f});
   };
 
   function fileSubmitHandler() {
-    files.map(f => console.log(f));
-    setState({...state, filesSubmitted: true});
+    s.files.map(f => console.log(f));
+    setState({...s, filesSubmitted: true});
   };
 
   return (
     <div className="frage">
       <div className="question-pane">
-        {current < fragen.length ? (
+        {s.current < fragen.length ? (
           <Card
-            frage={fragen[current].frage}
-            answers={fragen[current].answers}
+            frage={fragen[s.current].frage}
+            answers={fragen[s.current].answers}
             onAnswerSelected={inc}
           />
-        ):(
-          <div>
-            <input type="file" onChange={fileSelectHandler}/>
+        ):(!s.filesSubmitted ? (
             <div>
-              <button onClick={fileSubmitHandler}>Sumbit</button>
+              <input type="file" onChange={fileSelectHandler}/>
+              <div>
+                <button onClick={fileSubmitHandler}>Sumbit</button>
+              </div>
             </div>
-          </div>
-        )}
+          ) : (
+            <div>Sumbitted</div>
+          ))}
       </div>
     </div>
   );
