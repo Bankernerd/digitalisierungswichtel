@@ -1,4 +1,5 @@
 import React from 'react';
+import { Infos } from '../Info/Infos';
 
 function Overview() {
   const [route, setRoute] = React.useState('overview');
@@ -46,7 +47,7 @@ function Overview() {
           </div>
         );
       case 'info':
-        return <div className="info"></div>;
+        return <Infos />
       case 'tools':
         return <div className="tools"></div>;
       case 'website':
